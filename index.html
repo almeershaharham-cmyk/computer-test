@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Preparation For Computer Paper</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#06101d,#12385c);
+    color:#172033;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#081522;
+    color:white;
+    text-align:center;
+    padding:28px 20px;
+    box-shadow:0 5px 25px rgba(0,0,0,.35);
+}
+
+.header h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#b9c8d8;
+    font-size:16px;
+}
+
+.marks{
+    display:inline-block;
+    margin-top:16px;
+    background:#2563eb;
+    padding:10px 28px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:100%;
+    max-width:1000px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 35px rgba(0,0,0,.2);
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.card-description{
+    color:#64748b;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+/* ================= HOME ================= */
+
+.instructions{
+    line-height:1.8;
+    color:#475569;
+}
+
+.structure{
+    margin-top:20px;
+}
+
+.structure div{
+    background:#f1f5f9;
+    padding:12px;
+    border-radius:8px;
+    margin:8px 0;
+}
+
+.start-btn{
+    width:100%;
+    margin-top:25px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.start-btn:hover{
+    background:#1d4ed8;
+}
+
+/* ================= TEST ================= */
+
+#testPage{
+    display:none;
+}
+
+.timer{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    background:#111827;
+    color:white;
+    padding:14px;
+    border-radius:12px;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:bold;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.question{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    padding:20px;
+    margin-top:18px;
+}
+
+.question-number{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:5px 10px;
+    border-radius:7px;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.question-text{
+    font-weight:bold;
+    font-size:16px;
+    margin-bottom:14px;
+    line-height:1.5;
+}
+
+/* ================= INPUT ================= */
+
+.text-answer{
+    width:100%;
+    padding:12px;
+    border:2px solid #dbe2ea;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+.text-answer:focus{
+    border-color:#2563eb;
+}
+
+/* ================= OPTIONS ================= */
+
+.option{
+    display:block;
+    background:white;
+    border:1px solid #dbe2ea;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    background:#eef4ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+/* ================= SUBMIT ================= */
+
+.submit-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#16a34a;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#15803d;
+}
+
+/* ================= RESULT ================= */
+
+#resultPage{
+    display:none;
+}
+
+.result-card{
+    text-align:center;
+}
+
+.score{
+    font-size:60px;
+    font-weight:bold;
+    color:#2563eb;
+    margin:20px 0;
+}
+
+.result-message{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.restart{
+    padding:14px 30px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= REVIEW ================= */
+
+.review-title{
+    margin-bottom:20px;
+}
+
+.review-question{
+    border-radius:12px;
+    padding:18px;
+    margin:12px 0;
+    border:2px solid #e2e8f0;
+}
+
+.review-question.correct{
+    background:#f0fdf4;
+    border-color:#22c55e;
+}
+
+.review-question.wrong{
+    background:#fef2f2;
+    border-color:#ef4444;
+}
+
+.review-question.partial{
+    background:#fffbeb;
+    border-color:#f59e0b;
+}
+
+.status{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.your-answer{
+    margin:7px 0;
+    color:#334155;
+}
+
+.correct-answer{
+    margin:7px 0;
+    color:#15803d;
+    font-weight:bold;
+}
+
+.viva-note{
+    margin-top:10px;
+    font-size:13px;
+    color:#64748b;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:650px){
+
+    .header h1{
+        font-size:28px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .score{
+        font-size:48px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+                     HOME PAGE
+===================================================== -->
+
+<div id="homePage">
+
+    <div class="header">
+
+        <h1>Preparation For Computer Paper</h1>
+
+        <p>Class 8 Computer Test</p>
+
+        <div class="marks">
+            Total Marks: 100
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>📚 Test Instructions</h2>
+
+            <p class="instructions">
+
+                This practice test is based on the topics you are
+                preparing for your Computer paper.
+
+                <br><br>
+
+                Read each question carefully and try to answer
+                without looking at your notes.
+
+            </p>
+
+
+            <div class="structure">
+
+                <div>
+                    <b>Q1 — Fill in the Blanks</b>
+                    <br>
+                    Marks: 20
+                </div>
+
+                <div>
+                    <b>Q2 — MCQs</b>
+                    <br>
+                    Marks: 30
+                </div>
+
+                <div>
+                    <b>Q3 — Choose the Correct Answers</b>
+                    <br>
+                    Marks: 20
+                </div>
+
+                <div>
+                    <b>Q4 — High Thinking Viva Questions</b>
+                    <br>
+                    Marks: 30
+                </div>
+
+            </div>
+
+
+            <button class="start-btn" onclick="startTest()">
+                🚀 Start Test
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+                     TEST PAGE
+===================================================== -->
+
+<div id="testPage">
+
+    <div class="header">
+
+        <h1>Preparation For Computer Paper</h1>
+
+        <p>Class 8 Computer Test</p>
+
+        <div class="marks">
+            Total Marks: 100
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="timer">
+
+            ⏱️ Time Remaining:
+
+            <span id="time">
+                20:00
+            </span>
+
+        </div>
+
+
+
+        <!-- =================================================
+                         Q1
+        ================================================== -->
+
+        <div class="card">
+
+            <h2>Q1. Fill in the Blanks</h2>
+
+            <p class="card-description">
+                Fill in the blanks with the correct words.
+                Each question carries 3.33 marks.
+            </p>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q1.1
+                </span>
+
+                <div class="question-text">
+                    Raster graphics are made up of tiny ______.
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="q1"
+                    type="text"
+                    placeholder="Write your answer"
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q1.2
+                </span>
+
+                <div class="question-text">
+                    Vector graphics are commonly used for ______ and icon designs.
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="q2"
+                    type="text"
+                    placeholder="Write your answer"
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q1.3
+                </span>
+
+                <div class="question-text">
+                    A spreadsheet is made up of rows and ______.
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="q3"
+                    type="text"
+                    placeholder="Write your answer"
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q1.4
+                </span>
+
+                <div class="question-text">
+                    A single box in a spreadsheet is called a ______.
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="q4"
+                    type="text"
+                    placeholder="Write your answer"
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q1.5
+                </span>
+
+                <div class="question-text">
+                    Python uses the ______ function to display output.
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="q5"
+                    type="text"
+                    placeholder="Write your answer"
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q1.6
+                </span>
+
+                <div class="question-text">
+                    A Python dictionary stores data in ______-value pairs.
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="q6"
+                    type="text"
+                    placeholder="Write your answer"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+                         Q2
+        ================================================== -->
+
+        <div class="card">
+
+            <h2>Q2. MCQs</h2>
+
+            <p class="card-description">
+                Choose the correct option. Each question carries 5 marks.
+            </p>
+
+
+            <!-- MCQ 1 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q2.1
+                </span>
+
+                <div class="question-text">
+                    Which is an example of vector graphics?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="mcq1" value="Photo">
+                    Photo
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq1" value="Logo">
+                    Logo
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq1" value="Screenshot">
+                    Screenshot
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq1" value="Paint Photo">
+                    Paint photo
+                </label>
+
+            </div>
+
+
+            <!-- MCQ 2 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q2.2
+                </span>
+
+                <div class="question-text">
+                    Which is an example of raster graphics?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="mcq2" value="Logo">
+                    Logo
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq2" value="Icon">
+                    Icon design
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq2" value="Paint">
+                    Microsoft Paint image
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq2" value="SVG">
+                    SVG drawing
+                </label>
+
+            </div>
+
+
+            <!-- MCQ 3 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q2.3
+                </span>
+
+                <div class="question-text">
+                    Which spreadsheet function adds numbers?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="mcq3" value="SUM">
+                    SUM
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq3" value="MAX">
+                    MAX
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq3" value="COUNT">
+                    COUNT
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq3" value="MIN">
+                    MIN
+                </label>
+
+            </div>
+
+
+            <!-- MCQ 4 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q2.4
+                </span>
+
+                <div class="question-text">
+                    Which Python symbol is used for multiplication?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="mcq4" value="+">
+                    +
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq4" value="-">
+                    -
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq4" value="*">
+                    *
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq4" value="/">
+                    /
+                </label>
+
+            </div>
+
+
+            <!-- MCQ 5 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q2.5
+                </span>
+
+                <div class="question-text">
+                    Which Python data structure stores key-value pairs?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="mcq5" value="List">
+                    List
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq5" value="Dictionary">
+                    Dictionary
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq5" value="String">
+                    String
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq5" value="Integer">
+                    Integer
+                </label>
+
+            </div>
+
+
+            <!-- MCQ 6 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q2.6
+                </span>
+
+                <div class="question-text">
+                    Which mode is used to write data into a text file?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="mcq6" value="r">
+                    r
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq6" value="w">
+                    w
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq6" value="a">
+                    a
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="mcq6" value="x">
+                    x
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+                         Q3
+        ================================================== -->
+
+        <div class="card">
+
+            <h2>Q3. Choose the Correct Answers</h2>
+
+            <p class="card-description">
+                Choose the best answer. Each question carries 5 marks.
+            </p>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q3.1
+                </span>
+
+                <div class="question-text">
+                    Which group contains multimedia elements?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q3a" value="Multimedia">
+                    Text, images, audio, video and animation
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3a" value="Numbers">
+                    Numbers only
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3a" value="Text">
+                    Text only
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q3.2
+                </span>
+
+                <div class="question-text">
+                    Which layout principle means keeping related elements close together?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q3b" value="Proximity">
+                    Proximity
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3b" value="Contrast">
+                    Contrast
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3b" value="Balance">
+                    Balance
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q3.3
+                </span>
+
+                <div class="question-text">
+                    What does autofill do in a spreadsheet?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q3c" value="Delete">
+                    Deletes all data
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3c" value="Continue">
+                    Continues a pattern or copies formulas
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3c" value="Chart">
+                    Creates only charts
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q3.4
+                </span>
+
+                <div class="question-text">
+                    Which command is used to read the contents of a text file?
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q3d" value="file.write">
+                    file.write()
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3d" value="file.read">
+                    file.read()
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3d" value="print">
+                    print()
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+                         Q4
+        ================================================== -->
+
+        <div class="card">
+
+            <h2>Q4. High Thinking Viva Questions</h2>
+
+            <p class="card-description">
+                These questions test your understanding. Answer in simple
+                Class 8 language.
+            </p>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q4.1 — 10 Marks
+                </span>
+
+                <div class="question-text">
+                    Why is vector graphics useful for making a school logo?
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="viva1"
+                    type="text"
+                    placeholder="Write your answer..."
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q4.2 — 10 Marks
+                </span>
+
+                <div class="question-text">
+                    If you have marks of 50 students, why would a spreadsheet
+                    be useful instead of writing everything on paper?
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="viva2"
+                    type="text"
+                    placeholder="Write your answer..."
+                >
+
+            </div>
+
+
+            <div class="question">
+
+                <span class="question-number">
+                    Q4.3 — 10 Marks
+                </span>
+
+                <div class="question-text">
+                    Why would you use a Python list to store the names of
+                    students in a class?
+                </div>
+
+                <input
+                    class="text-answer"
+                    id="viva3"
+                    type="text"
+                    placeholder="Write your answer..."
+                >
+
+            </div>
+
+
+            <button class="submit-btn" onclick="submitTest()">
+                ✅ Submit Test
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+                     RESULT PAGE
+===================================================== -->
+
+<div id="resultPage">
+
+    <div class="header">
+
+        <h1>🎉 Test Completed</h1>
+
+        <p>Preparation For Computer Paper</p>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="card result-card">
+
+            <h2>Your Final Result</h2>
+
+            <div class="score">
+                <span id="score">0</span>/100
+            </div>
+
+            <div
+                class="result-message"
+                id="resultMessage">
+            </div>
+
+            <button
+                class="restart"
+                onclick="location.reload()">
+                🔄 Try Again
+            </button>
+
+        </div>
+
+
+        <!-- REVIEW -->
+
+        <div class="card">
+
+            <h2 class="review-title">
+                📝 Answer Review
+            </h2>
+
+            <p class="card-description">
+                Here you can see which answers were correct and which
+                answers you need to revise.
+            </p>
+
+            <div id="reviewContainer"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+                       TIMER
+===================================================== */
+
+let totalSeconds = 20 * 60;
+
+let timerInterval;
+
+
+/* =====================================================
+                    START TEST
+===================================================== */
+
+function startTest(){
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("testPage").style.display = "block";
+
+    startTimer();
+
+}
+
+
+/* =====================================================
+                       TIMER
+===================================================== */
+
+function startTimer(){
+
+    timerInterval = setInterval(function(){
+
+        let minutes =
+            Math.floor(totalSeconds / 60);
+
+        let seconds =
+            totalSeconds % 60;
+
+        if(seconds < 10){
+            seconds = "0" + seconds;
+        }
+
+        document.getElementById("time").textContent =
+            minutes + ":" + seconds;
+
+
+        if(totalSeconds <= 0){
+
+            clearInterval(timerInterval);
+
+            submitTest();
+
+        }
+
+        totalSeconds--;
+
+    },1000);
+
+}
+
+
+/* =====================================================
+                   RADIO FUNCTION
+===================================================== */
+
+function getRadio(name){
+
+    let selected =
+        document.querySelector(
+            'input[name="' + name + '"]:checked'
+        );
+
+    return selected ? selected.value : "";
+
+}
+
+
+/* =====================================================
+                 NORMALIZE ANSWER
+===================================================== */
+
+function cleanAnswer(answer){
+
+    return answer
+        .trim()
+        .toLowerCase()
+        .replace(/[.,!?]/g,"");
+
+}
+
+
+/* =====================================================
+                   VIVA CHECK
+===================================================== */
+
+function checkViva(answer, keywords){
+
+    let text = cleanAnswer(answer);
+
+    if(text === ""){
+        return 0;
+    }
+
+    let found = 0;
+
+    keywords.forEach(function(word){
+
+        if(text.includes(word)){
+            found++;
+        }
+
+    });
+
+    /*
+        At least two important ideas
+        gives full marks.
+    */
+
+    if(found >= 2){
+        return 10;
+    }
+
+    if(found === 1){
+        return 5;
+    }
+
+    return 0;
+
+}
+
+
+/* =====================================================
+                    REVIEW ITEM
+===================================================== */
+
+function addReview(
+    question,
+    yourAnswer,
+    correctAnswer,
+    status,
+    type
+){
+
+    let container =
+        document.getElementById("reviewContainer");
+
+    let div =
+        document.createElement("div");
+
+    div.className =
+        "review-question " + type;
+
+
+    let statusText = "";
+
+    if(status === "correct"){
+
+        statusText = "✅ Correct";
+
+    }
+    else if(status === "partial"){
+
+        statusText = "🟡 Partially Correct";
+
+    }
+    else{
+
+        statusText = "❌ Wrong";
+
+    }
+
+
+    div.innerHTML = `
+
+        <div class="status">
+            ${statusText}
+        </div>
+
+        <b>${question}</b>
+
+        <div class="your-answer">
+            <b>Your answer:</b>
+            ${yourAnswer || "Not answered"}
+        </div>
+
+        <div class="correct-answer">
+            <b>Correct answer:</b>
+            ${correctAnswer}
+        </div>
+
+    `;
+
+    container.appendChild(div);
+
+}
+
+
+/* =====================================================
+                    SUBMIT TEST
+===================================================== */
+
+function submitTest(){
+
+    clearInterval(timerInterval);
+
+
+    let score = 0;
+
+    let review =
+        document.getElementById("reviewContainer");
+
+    review.innerHTML = "";
+
+
+    /* =================================================
+                         Q1
+       20 MARKS
+    ================================================= */
+
+
+    let q1 =
+        document.getElementById("q1").value;
+
+    let q2 =
+        document.getElementById("q2").value;
+
+    let q3 =
+        document.getElementById("q3").value;
+
+    let q4 =
+        document.getElementById("q4").value;
+
+    let q5 =
+        document.getElementById("q5").value;
+
+    let q6 =
+        document.getElementById("q6").value;
+
+
+    let fillAnswers = [
+
+        {
+            question:"Raster graphics are made up of tiny ______.",
+            answer:q1,
+            correct:"Pixels",
+            accepted:["pixel","pixels"]
+        },
+
+        {
+            question:"Vector graphics are commonly used for ______ and icon designs.",
+            answer:q2,
+            correct:"Logos",
+            accepted:["logo","logos"]
+        },
+
+        {
+            question:"A spreadsheet is made up of rows and ______.",
+            answer:q3,
+            correct:"Columns",
+            accepted:["column","columns"]
+        },
+
+        {
+            question:"A single box in a spreadsheet is called a ______.",
+            answer:q4,
+            correct:"Cell",
+            accepted:["cell"]
+        },
+
+        {
+            question:"Python uses the ______ function to display output.",
+            answer:q5,
+            correct:"print",
+            accepted:["print","print()"]
+        },
+
+        {
+            question:"A Python dictionary stores data in ______-value pairs.",
+            answer:q6,
+            correct:"Key-value",
+            accepted:["key","key-value","key value"]
+        }
+
+    ];
+
+
+    fillAnswers.forEach(function(item){
+
+        let user =
+            cleanAnswer(item.answer);
+
+        let correct =
+            item.accepted.includes(user);
+
+
+        if(correct){
+            score += 20 / 6;
+        }
+
+
+        addReview(
+
+            item.question,
+
+            item.answer,
+
+            item.correct,
+
+            correct ? "correct" : "wrong",
+
+            correct ? "correct" : "wrong"
+
+        );
+
+    });
+
+
+
+    /* =================================================
+                         Q2
+       30 MARKS
+    ================================================= */
+
+
+    let mcqAnswers = [
+
+        {
+            question:"Which is an example of vector graphics?",
+            name:"mcq1",
+            correct:"Logo"
+        },
+
+        {
+            question:"Which is an example of raster graphics?",
+            name:"mcq2",
+            correct:"Paint"
+        },
+
+        {
+            question:"Which spreadsheet function adds numbers?",
+            name:"mcq3",
+            correct:"SUM"
+        },
+
+        {
+            question:"Which Python symbol is used for multiplication?",
+            name:"mcq4",
+            correct:"*"
+        },
+
+        {
+            question:"Which Python data structure stores key-value pairs?",
+            name:"mcq5",
+            correct:"Dictionary"
+        },
+
+        {
+            question:"Which mode is used to write data into a text file?",
+            name:"mcq6",
+            correct:"w"
+        }
+
+    ];
+
+
+    mcqAnswers.forEach(function(item){
+
+        let user =
+            getRadio(item.name);
+
+        let correct =
+            user === item.correct;
+
+
+        if(correct){
+            score += 5;
+        }
+
+
+        addReview(
+
+            item.question,
+
+            user || "Not answered",
+
+            item.correct,
+
+            correct ? "correct" : "wrong",
+
+            correct ? "correct" : "wrong"
+
+        );
+
+    });
+
+
+
+    /* =================================================
+                         Q3
+       20 MARKS
+    ================================================= */
+
+
+    let q3Answers = [
+
+        {
+            question:"Which group contains multimedia elements?",
+            name:"q3a",
+            correct:"Multimedia"
+        },
+
+        {
+            question:"Which layout principle means keeping related elements close together?",
+            name:"q3b",
+            correct:"Proximity"
+        },
+
+        {
+            question:"What does autofill do in a spreadsheet?",
+            name:"q3c",
+            correct:"Continue"
+        },
+
+        {
+            question:"Which command is used to read the contents of a text file?",
+            name:"q3d",
+            correct:"file.read"
+        }
+
+    ];
+
+
+    q3Answers.forEach(function(item){
+
+        let user =
+            getRadio(item.name);
+
+        let correct =
+            user === item.correct;
+
+
+        if(correct){
+            score += 5;
+        }
+
+
+        let displayCorrect =
+            item.correct;
+
+
+        if(item.correct === "Multimedia"){
+            displayCorrect =
+                "Text, images, audio, video and animation";
+        }
+
+        if(item.correct === "Proximity"){
+            displayCorrect =
+                "Proximity";
+        }
+
+        if(item.correct === "Continue"){
+            displayCorrect =
+                "Continues a pattern or copies formulas";
+        }
+
+        if(item.correct === "file.read"){
+            displayCorrect =
+                "file.read()";
+        }
+
+
+        addReview(
+
+            item.question,
+
+            user || "Not answered",
+
+            displayCorrect,
+
+            correct ? "correct" : "wrong",
+
+            correct ? "correct" : "wrong"
+
+        );
+
+    });
+
+
+
+    /* =================================================
+                         Q4
+       30 MARKS
+    ================================================= */
+
+
+    let viva1 =
+        document.getElementById("viva1").value;
+
+    let viva2 =
+        document.getElementById("viva2").value;
+
+    let viva3 =
+        document.getElementById("viva3").value;
+
+
+    let viva1Score =
+        checkViva(
+            viva1,
+            [
+                "logo",
+                "resize",
+                "quality",
+                "clear",
+                "enlarge"
+            ]
+        );
+
+
+    let viva2Score =
+        checkViva(
+            viva2,
+            [
+                "organize",
+                "calculate",
+                "data",
+                "marks",
+                "formula",
+                "chart"
+            ]
+        );
+
+
+    let viva3Score =
+        checkViva(
+            viva3,
+            [
+                "store",
+                "names",
+                "multiple",
+                "students",
+                "data",
+                "collection"
+            ]
+        );
+
+
+    score += viva1Score;
+    score += viva2Score;
+    score += viva3Score;
+
+
+    addReview(
+
+        "Why is vector graphics useful for making a school logo?",
+
+        viva1,
+
+        "Vector graphics can be resized or enlarged without losing quality, so they are useful for logos.",
+
+        viva1Score === 10
+            ? "correct"
+            : viva1Score > 0
+                ? "partial"
+                : "wrong",
+
+        viva1Score === 10
+            ? "correct"
+            : viva1Score > 0
+                ? "partial"
+                : "wrong"
+
+    );
+
+
+    addReview(
+
+        "Why would a spreadsheet be useful for the marks of 50 students?",
+
+        viva2,
+
+        "A spreadsheet can organize the marks and quickly calculate, sort and analyze the data.",
+
+        viva2Score === 10
+            ? "correct"
+            : viva2Score > 0
+                ? "partial"
+                : "wrong",
+
+        viva2Score === 10
+            ? "correct"
+            : viva2Score > 0
+                ? "partial"
+                : "wrong"
+
+    );
+
+
+    addReview(
+
+        "Why would you use a Python list to store student names?",
+
+        viva3,
+
+        "A list can store multiple student names together and makes the data easy to access and manage.",
+
+        viva3Score === 10
+            ? "correct"
+            : viva3Score > 0
+                ? "partial"
+                : "wrong",
+
+        viva3Score === 10
+            ? "correct"
+            : viva3Score > 0
+                ? "partial"
+                : "wrong"
+
+    );
+
+
+    /* =================================================
+                    ROUND SCORE
+       Prevent floating point issues
+    ================================================= */
+
+    score = Math.round(score);
+
+    if(score > 100){
+        score = 100;
+    }
+
+
+    /* =================================================
+                    SHOW RESULT
+    ================================================= */
+
+    document.getElementById("testPage")
+        .style.display = "none";
+
+
+    document.getElementById("resultPage")
+        .style.display = "block";
+
+
+    document.getElementById("score")
+        .textContent = score;
+
+
+    let message = "";
+
+
+    if(score >= 90){
+
+        message =
+            "🌟 Excellent! Your preparation is very strong.";
+
+    }
+    else if(score >= 75){
+
+        message =
+            "👏 Very Good! Keep revising the topics.";
+
+    }
+    else if(score >= 60){
+
+        message =
+            "👍 Good effort! A little more practice will help.";
+
+    }
+    else if(score >= 40){
+
+        message =
+            "📚 Keep practicing and revise your weak topics.";
+
+    }
+    else{
+
+        message =
+            "💪 Don't worry. Review the answers and try again.";
+
+    }
+
+
+    document.getElementById("resultMessage")
+        .textContent = message;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
